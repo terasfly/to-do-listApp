@@ -1,0 +1,329 @@
+:root {
+    /* Spalvos */
+    --bg-color: #9DC2C6;
+    /* Bendras fonas (melsvai žalsvas) */
+    --card-bg: #F4F1ED;
+    /* To-Do kortelės fonas (šviesiai kreminė) */
+    --text-color: #2F3D4C;
+    /* Pagrindinis tekstas (tamsiai mėlynas) */
+    --input-border: #C5D9DE;
+    /* Įvedimo laukelio rėmelis */
+    --input-text: #6C8992;
+    /* Įvedimo laukelio tekstas */
+    --button-color: #5BA7A0;
+    /* Mygtuko fonas (jūrinė žalia) */
+    --button-text: #ffffff;
+    /* Mygtuko tekstas */
+    --checkbox-fill: #2F3D4C;
+    /* Užpildytas checkbox */
+    --checkbox-border: #2F3D4C;
+    /* Tuščio checkbox rėmelis */
+
+    /* Šriftas */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Šešėlis (neprivaloma, bet gražiai tinka kortelei) */
+    --shadow-light: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --button-hover: #47857F;
+    /* Tamsesnė jūrinė žalia */
+    --button-active: #2F5C58;
+    --danger-color: #e74c3c;
+    /* ryški raudona */
+    --danger-hover: #c0392b;
+
+
+
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+
+
+@media (prefers-color-scheme: dar) {
+    :root {
+        --bg-color: #1E1E1E;
+        /* Tamsus bendras fonas */
+        --card-bg: #2B2B2B;
+        /* Kortelės fonas */
+        --text-color: #EAEAEA;
+        /* Šviesus tekstas */
+        --input-border: #4A5A64;
+        /* Pilkas rėmelis */
+        --input-text: #B0C4CC;
+        /* Švelniai melsvas įvedimo tekstas */
+        --button-color: #3E7E78;
+        /* Tamsi jūrinė žalia */
+        --button-hover: #2F5C58;
+        /* Dar tamsesnė hover būsena */
+        --button-active: #254947;
+        /* Spaudimo efektas */
+        --checkbox-fill: #EAEAEA;
+        --checkbox-border: #EAEAEA;
+        --input-border-focus: #5BA7A0;
+
+    }
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    font-family: var(--font-family);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.container {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    min-height: 300px;
+    min-width: 300px;
+
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+
+}
+
+.to-do {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    /* min-height: 300px; */
+    padding: 1.5rem;
+    /* margin: 1rem; */
+
+}
+
+.to-do__title {
+    padding: 10px;
+    color: var(--text-color);
+    font-size: 2.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--text-color)
+}
+
+.add-task__form input {
+    background-color: var(--card-bg);
+
+    border: 1px solid var(--input-border);
+    color: var(--input-text);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    transition: 1s;
+    text-transform: uppercase;
+}
+
+.add-task__text {
+    text-transform: uppercase;
+    padding: 2px;
+}
+
+.add-task__form input:focus {
+    outline: none;
+    border: 1px solid var(--input-border-focus);
+    box-shadow: 0 0 0 2px rgba(91, 167, 160, 0.3);
+    transition: 0.2s;
+}
+
+
+.add-task__form input::placeholder {
+    color: var(--input-text)
+}
+
+.add-task__form {
+    display: flex;
+    gap: 0.5rem;
+
+    width: 100%;
+
+}
+
+.to-do__item,
+.add-task__form {
+    max-width: 300px;
+    width: 100%;
+}
+
+.add-task__button {
+    color: var(--button-text);
+    background: var(--button-color);
+    border: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    transition: 1s;
+}
+
+.add-task__button:hover {
+    background: var(--button-hover);
+    cursor: pointer;
+    transform: translateY(-1px);
+    transition: all 0.2s ease-in-out;
+}
+
+.add-task__button:focus {
+    outline: none;
+    border: 1px solid var(--input-border-focus);
+    box-shadow: 0 0 0 2px rgba(91, 167, 160, 0.3);
+    transition: 0.2s;
+
+}
+
+.add-task__button:active {
+    transform: scale(1);
+    background: var(--button-active);
+}
+
+/* to do list */
+.to-do__list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    /* display: none; */
+
+}
+
+.to-do__list li {
+    list-style-type: none;
+}
+
+.to-do__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    /* border: 1px solid black; */
+    width: 100%;
+    margin-top: 15px;
+
+
+    border: 1px solid var(--input-border);
+    border-radius: 7px;
+    padding: 0.25rem;
+
+
+}
+
+/* li .to-do__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+.checkbox {
+    height: 26px;
+    width: 26px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-right: 8px;
+    /* margin-left: 8px; */
+}
+
+
+.to-do__text {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+
+
+.list__remove-button {
+    color: var(--button-text);
+    background: var(--button-color);
+    border: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--button-hover);
+    cursor: pointer;
+    transform: translateY(-1px);
+    transition: all 0.2s ease-in-out;
+}
+
+button:focus {
+    outline: none;
+    border: 1px solid var(--input-border-focus);
+    box-shadow: 0 0 0 2px rgba(91, 167, 160, 0.3);
+    transition: 0.2s;
+
+}
+
+button:active {
+    transform: scale(1);
+    background: var(--button-active);
+}
+
+.icon--remove line {
+    stroke: red;
+    transition: stroke 0.3s ease;
+}
+
+.list__remove-button:hover .icon--remove line {
+    stroke: darkred;
+}
+
+.list__remove-button {
+    padding: 0.5rem;
+    display: flex;
+    margin: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon--remove {
+    width: 20px;
+    height: 20px;
+}
+
+.add-task__form,
+.to-do__item {
+    max-width: 316px;
+    width: 100%;
+    padding: 0.25rem;
+    border: 1px solid var(--input-border);
+    border-radius: 7px;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+    transition: 0.3s ease;
+}
