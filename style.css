@@ -257,7 +257,7 @@ body {
 
 
 .list__remove-button {
-    color: var(--button-text);
+    color: red;
     background: var(--button-color);
     border: none;
     padding: 0.5rem 0.75rem;
