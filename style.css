@@ -258,13 +258,15 @@ body {
 
 .list__remove-button {
     color: red;
-    background: var(--button-color);
+    background: transparent;
     border: none;
     padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     border-radius: 7px;
     transition: 0.3s;
+
+
 }
 
 button:hover {
